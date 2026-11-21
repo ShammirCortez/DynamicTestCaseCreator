@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import MenuDropdown from './ui/MenuDropdown/index.jsx';
 import generateIntegerTests from './generators/integerGenerator.js';
 import exportToTxt from './exporters/txtExporter.js';
+import { IconFileImport } from '@tabler/icons-react';
 
-const DataTypeDropdown = () => {
+const TestCreator = () => {
     const [selectedType, setSelectedType] = useState('Integer');
     const [testCases, setTestCases] = useState([]);
 
@@ -23,6 +24,7 @@ const DataTypeDropdown = () => {
         'Character'
     ];
 
+    //update dropdown to chosen and clear testCases
     const items = dataTypes.map((type) => ({
     id: type,
     label: type,
@@ -108,6 +110,20 @@ return (
 
         {/*main*/}
         <main className="max-w-5xl">
+
+        <div className="mb-4 text-center">
+            <input accept=".yml,.yaml,.txt,.json" className="hidden" type="file" />
+            <button
+                type="button"
+                className="flex flex-col items-center justify-center w-full min-h-50 border-2 border-dashed border-[#444444] rounded-lg cursor-pointer bg-[#1a1a1a] hover:border-[#e4ae48] hover:bg-[#222224] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e4ae48]"
+                aria-label="Select file"
+            >
+                <IconFileImport size={40} strokeWidth={1.5} className="text-[#999999] mb-4" aria-hidden="true" />
+
+                <p className="text-lg font-medium text-[#dddddd]">Drop file or click to select</p>
+                <p className="text-sm text-[#999999]">Supports yml, txt, json</p>
+            </button>
+        </div>
 
         {/*data type selection */}
         <section
@@ -233,6 +249,7 @@ return (
                 </thead>
 
                 <tbody>
+                    {/*give each test case an index and a row */}
                     {testCases.map((test, index) => (
                     <tr
                         key={index}
@@ -275,4 +292,4 @@ return (
     );
 };
 
-export default DataTypeDropdown;
+export default TestCreator;
