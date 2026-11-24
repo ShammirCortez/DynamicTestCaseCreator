@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import MenuDropdown from './ui/MenuDropdown/index.jsx';
+import MenuDropdown from './external/bruno/ui/MenuDropdown/index.jsx';
 import generateIntegerTests from './generators/integerGenerator.js';
 import exportToTxt from './exporters/txtExporter.js';
 
