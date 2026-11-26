@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 //import DataTypeDropdown from '../archive/initialAppVers/index4.jsx';
 import DataTypeDropdown from './index.jsx';
-import theme from './theme';
+import theme from './external/bruno/theme';
 
 import './style.css';
 
